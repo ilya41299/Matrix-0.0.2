@@ -124,7 +124,7 @@ void revers_mas(float ** mas, float ** mas1, int rows) {
 }
 
 int main() {
-	int rows1 = 0, rows2 = 0, columns1 = 0, columns2 = 0;
+	int rows1, rows2, columns1, columns2;
 	char op;
 	R_S_C(rows1, columns1);
 	float ** mas1 = new float *[rows1];
