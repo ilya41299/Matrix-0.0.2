@@ -87,7 +87,7 @@ void Trans(float ** &result_mas, float ** mas1, int rows, int columns) {
 }
 
 bool revers_mas(float ** &result_mas, float ** mas1, int rows) {
-	float a, b, result;                          // Результирующая сатрица принимает вид единичной матрицы
+	float a, b, result;                          
 	for (int i = 0; i < rows; i++) {
 		result_mas[i] = new float[rows];
 		for (int j = 0; j < rows; j++) {
