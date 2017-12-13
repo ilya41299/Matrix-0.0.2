@@ -92,9 +92,9 @@ bool revers_mas(float ** &result_mas, float ** mas1, int rows) {
 		result_mas[i] = new float[rows];
 		for (int j = 0; j < rows; j++) {
 			if (i == j) {
-				result_mas[i][j] = 1;
+				result_mas[i][j] = 1.0f;
 			}
-			else result_mas[i][j] = 0;
+			else result_mas[i][j] = 0.0f;
 		}
 	}
 	for (int i = 0; i < rows; i++) {
@@ -119,7 +119,7 @@ bool revers_mas(float ** &result_mas, float ** mas1, int rows) {
 					}
 				}
 			}
-			if (mas1[j][j] == 0) {
+			if (mas1[j][j] == 0.0f) {
 				cout << "There is no reverse matrix" << endl;
 				return false;
 			}
