@@ -16,8 +16,18 @@ bool read_size(unsigned int &rows, unsigned int &columns) {
 	}
 	return true;
 }
+void create(unsigned int rows, unsigned int columns, float ** &elements)
+{
+	for (unsigned int i = 0; i < rows; i++) {
+		elements[i] = new float[columns];
+		for (unsigned int j = 0; j < columns; ++j) {
+			elements[i][j] = 0.0f;
+		}
+	}
+}
 
-bool vvod_mas(float **mas, unsigned int rows, unsigned int columns)
+
+bool vvod_mas(float ** mas, unsigned int rows, unsigned int columns)
 {
 	string stroka;
 	for (unsigned int i = 0; i < rows; ++i) {
@@ -26,7 +36,6 @@ bool vvod_mas(float **mas, unsigned int rows, unsigned int columns)
 		istringstream stream(stroka);
 		for (unsigned int j = 0; j < columns; j++) {
 			if (!(stream >> mas[i][j])) {
-
 				return false;
 			}
 		}
@@ -134,6 +143,7 @@ int main() {
 		return -1;
 	}
 	float ** mas1 = new float *[rows1];
+	create(rows1, columns1, mas1);
 	float ** result_mas;
 	if (!(vvod_mas(mas1, rows1, columns1))) {
 		cout << "An error has occured while reading input data";
@@ -145,6 +155,7 @@ int main() {
 		cin.get();
 		read_size(rows2, columns2);
 		float ** mas2 = new float *[rows2];
+		create(rows2, columns2, mas2);
 		if (vvod_mas(mas2, rows2, columns2) && rows1 == columns2) {
 			mult(mas1, mas2, rows1, columns1, rows2, columns2, result_mas);
 			destroy(rows2, mas2);
@@ -178,6 +189,7 @@ int main() {
 		cin.get();
 		read_size(rows2, columns2);
 		float ** mas2 = new float *[rows2];
+		create(rows2, columns2, mas2);
 		if (vvod_mas(mas2, rows2, columns2) && rows1 == rows2 && columns1 == columns2) {
 			switch (op) {
 			case '+': {
