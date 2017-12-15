@@ -31,7 +31,6 @@ bool vvod_mas(float ** mas, unsigned int rows, unsigned int columns)
 {
 	string stroka;
 	for (unsigned int i = 0; i < rows; ++i) {
-		mas[i] = new float[columns];
 		getline(cin, stroka);
 		istringstream stream(stroka);
 		for (unsigned int j = 0; j < columns; j++) {
@@ -43,7 +42,7 @@ bool vvod_mas(float ** mas, unsigned int rows, unsigned int columns)
 	return true;
 }
 
-void destroy(unsigned int rows, float ** &mas )
+void destroy(unsigned int rows, float ** mas )
 {
 	for (unsigned int i = 0; i<rows; ++i) {
 		delete[]mas[i];
